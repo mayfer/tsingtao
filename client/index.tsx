@@ -126,12 +126,9 @@ function App() {
       <Header>
         <h1>Tsingtao</h1>
         <h2>Bundle & run TypeScript client code directly in the browser</h2>
-        <p>
-          Supports: <Feature>Typescript</Feature>, <Feature>TSX</Feature>, <Feature>importing npm packages</Feature>.
-          <br />It works by rewriting node_modules references to CDN URLs.
-          <br />
+          <p style={{color: '#ffffaa'}}>It works by (1) esbuild-wasm to bundle the code, (2) rewriting module references to CDNs so importing packages works without needing npm. Disclaimer: some npm packages may not work.</p>
+
           Clone on <a href="https://github.com/mayfer/tsingtao">GitHub</a>
-        </p>
       </Header>
       <Layout>
         <LeftColumn>

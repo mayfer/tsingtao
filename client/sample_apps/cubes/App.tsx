@@ -7,18 +7,24 @@ const CUBE_COUNT = 1000
 const GRID_SIZE = 10
 const SPACING = 4
 
-function InstancedCubes() {
-  const meshRef = useRef()
+interface RotationSpeed {
+  x: number
+  y: number 
+  z: number
+}
+
+function InstancedCubes(): JSX.Element {
+  const meshRef = useRef<THREE.InstancedMesh>(null)
   const tempMatrix = useMemo(() => new THREE.Matrix4(), [])
   const tempPosition = useMemo(() => new THREE.Vector3(), [])
   const tempRotation = useMemo(() => new THREE.Euler(), [])
   const tempQuaternion = useMemo(() => new THREE.Quaternion(), [])
   const tempScale = useMemo(() => new THREE.Vector3(1, 1, 1), [])
 
-  const [matrices, colors, rotationSpeeds] = useMemo(() => {
-    const tempMatrices = []
-    const tempColors = []
-    const tempRotationSpeeds = []
+  const [matrices, colors, rotationSpeeds] = useMemo<[THREE.Matrix4[], THREE.Color[], RotationSpeed[]]>(() => {
+    const tempMatrices: THREE.Matrix4[] = []
+    const tempColors: THREE.Color[] = []
+    const tempRotationSpeeds: RotationSpeed[] = []
     let index = 0
 
     for (let x = 0; x < GRID_SIZE; x++) {
@@ -54,6 +60,8 @@ function InstancedCubes() {
   useFrame((state) => {
     const { clock } = state
     const time = clock.getElapsedTime()
+
+    if (!meshRef.current) return
 
     let index = 0
     for (let x = 0; x < GRID_SIZE; x++) {
@@ -95,7 +103,7 @@ function InstancedCubes() {
   )
 }
 
-export default function Scene() {
+export default function Scene(): JSX.Element {
   return (
     <div className="h-screen w-full">
       <Canvas
