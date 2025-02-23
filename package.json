@@ -1,0 +1,26 @@
+{
+  "name": "tsingtao",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@codemirror/lang-javascript": "^6.2.3",
+    "@codemirror/theme-one-dark": "^6.1.2",
+    "@types/mime-types": "^2.1.4",
+    "@types/prismjs": "^1.26.3",
+    "@uiw/react-codemirror": "^4.23.8",
+    "mime-types": "^2.1.35",
+    "prismjs": "^1.29.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "styled-components": "^6.1.15"
+  }
+}
