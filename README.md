@@ -1,5 +1,9 @@
 # Tsingtao demo
 
+
+![Screenshot](https://raw.githubusercontent.com/mayfer/tsingtao/main/screenshot.png)
+
+
 To install dependencies:
 
 ```bash
